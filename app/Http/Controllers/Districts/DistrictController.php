@@ -5,14 +5,26 @@ namespace App\Http\Controllers\Districts;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use \App\Models\District as Districts;
+use \App\Mail\Mails\SendDistrictNotification as SDN;
+use Illuminate\Support\Facades\Mail;
 
 class DistrictController extends Controller
 {
     public function index()
     {
         try {
-            return ['status' => true, 'message' => 'Districts Loaded Successfully.', 'data' => Districts::all()];
+            // return ['status' => true, 'message' => 'Districts Loaded Successfully.', 'data' => Districts::all()];
+            return view('Districts.index');
         } catch (\Exception$e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function fetch_districts(){
+        try{
+            return ['status' => true, 'message' => 'Districts Loaded Successfully.', 'data' => Districts::all()];
+        }
+        catch(\Exception $e){
             return $e->getMessage();
         }
     }
@@ -58,6 +70,22 @@ class DistrictController extends Controller
         } catch (\Exception$e) {
             return $e->getMessage();
         }
+    }
+
+    public function send_admission_notification(){
+        try{
+            $to = 'alokdas4all@gmail.com';
+            Mail::to($to)->send(new SDN);
+            echo 'Send Email Notification..';
+        }
+        catch(\Exception $e){
+            return $e->getMessage();
+        }
+    }
+
+
+    public function template(){
+        return view('Mails.Default-mail-template');
     }
 
 }

@@ -46,6 +46,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
         Route::get('/add', 'Districts\DistrictController@add')->name('district.add');
         Route::get('/edit', 'Districts\DistrictController@edit')->name('district.edit');
         Route::get('/delete', 'Districts\DistrictController@delete')->name('district.delete');
+        Route::get('/send-notification', 'Districts\DistrictController@send_admission_notification')->name('district.send-notification');
     });
 
     Route::group(['prefix' => 'student'], function () {
@@ -61,5 +62,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
         Route::get('/edit', 'School\SchoolController@edit')->name('school.edit');
         Route::get('/delete', 'School\SchoolController@delete')->name('school.delete');
     });
+
+
+    Route::get('/test', 'Districts\DistrictController@template');
 
 });
