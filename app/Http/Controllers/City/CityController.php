@@ -58,4 +58,13 @@ class CityController extends Controller
             return $e->getMessage();
         }
     }
+
+    public function getDetails(){
+        try{
+            return Cities::get()->toArray();
+        }
+        catch(\Exception $e){
+            return $e->getMessage();
+        }
+    }
 }

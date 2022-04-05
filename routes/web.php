@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
         Route::get('/add', 'City\CityController@add')->name('city.add');
         Route::get('/edit', 'City\CityController@edit')->name('city.edit');
         Route::get('/delete', 'City\CityController@delete')->name('city.delete');
+        Route::get('/details', 'City/CityController@getDetails')->name('city.get.details');
     });
 
     Route::group(['prefix' => 'country'], function () {
