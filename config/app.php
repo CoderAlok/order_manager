@@ -175,6 +175,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // 'Collective\Html\HtmlServiceProvider',
+
     ],
 
     /*
@@ -205,8 +207,10 @@ return [
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
         'File' => Illuminate\Support\Facades\File::class,
+        // 'Form' => 'Collective\Html\FormFacade',
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
+        // 'Html' => 'Collective\Html\HtmlFacade',
         'Lang' => Illuminate\Support\Facades\Lang::class,
         'Log' => Illuminate\Support\Facades\Log::class,
         'Mail' => Illuminate\Support\Facades\Mail::class,
@@ -232,6 +236,11 @@ return [
         // 'Districts' => App\Models\District,
         // 'Schools' => App\Models\School,
         // 'Students' => App\Models\Student,
+
+        'tbl_user1' => App\Models\tbl_user1::class,
+        'tbl_menu1' => App\Models\tbl_menu1::class,
+        'tbl_roles1' => App\Models\tbl_roles1::class,
+        'tbl_assigned_menu' => App\Models\tbl_assigned_menu::class
 
     ],
 

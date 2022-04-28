@@ -13,7 +13,9 @@ class City extends Model
     protected $table = 'tbl_city';
 
     // Get state details
-    public function getState(){
-        return $this->hasOne(States::class , 'state_id', 'state_id');
+    public function getState()
+    {
+        return $this->hasOne(States::class, 'state_id', 'state_id');
     }
+
 }
