@@ -1,9 +1,11 @@
 <?php
+declare (strict_types = 1);
 
 namespace App\Http\Controllers\City;
 
 use App\Http\Controllers\Controller;
 use \App\Models\City as Cities;
+use Auth;
 
 class CityController extends Controller
 {
@@ -20,9 +22,9 @@ class CityController extends Controller
     {
         try {
             $city = new Cities;
-            $city->name = 'Papum Pare';
-            $city->state_id = '1';
-            $city->created_by = '1';
+            $city->name = 'Digha';
+            $city->state_id = '2';
+            $city->created_by = Auth::user()->id;
             $city->save();
 
             return ['status' => true, 'message' => 'City added successfully.', 'last_inserted_id' => $city->id];
@@ -59,12 +61,26 @@ class CityController extends Controller
         }
     }
 
-    public function getDetails(){
-        try{
+    public function getDetails()
+    {
+        try {
             return Cities::get()->toArray();
-        }
-        catch(\Exception $e){
+        } catch (\Exception$e) {
             return $e->getMessage();
         }
+    }
+
+    public function checkPhp()
+    {
+        try {
+            pr($arr);
+        } catch (\Exception$e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function getAge(int $age)
+    {
+        echo $age;
     }
 }

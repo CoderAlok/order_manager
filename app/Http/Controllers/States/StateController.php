@@ -4,6 +4,7 @@ namespace App\Http\Controllers\States;
 
 use App\Http\Controllers\Controller;
 use \App\Models\State as States;
+use Auth;
 
 class StateController extends Controller
 {
@@ -21,8 +22,9 @@ class StateController extends Controller
     {
         try {
             $state = new States;
-            $state->name = 'Arunachal Pradesh';
-            $state->created_by = '1';
+            $state->name = 'West Bengal';
+            $state->country_id = '1';
+            $state->created_by = Auth::user()->id;
             $state->save();
 
             return ['status' => true, 'message' => 'State added successfully.', 'last_inserted_id' => $state->id];
