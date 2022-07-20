@@ -112,6 +112,7 @@ class UserController extends Controller
     public function delete(Request $request)
     {
         try {
+            
             if (count(Users::where('id', $request->id)->get()->toArray()) > 0) {
                 // Delete thot perticular user
                 Users::where('id', $request->id)->delete();
